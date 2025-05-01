@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Why Choose Us?</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+<body>
+   <div class="container py-5">
+  <h1 class="text-center mb-4">What Makes Us Stand Out?</h1>
+  <div class="row">
+    {% for item in features %}
+      <div class="col-md-4 mb-4">
+        <div class="card h-100 shadow-sm p-3 border-0 text-center">
+          <!-- You can add an icon image or font-awesome icon here -->
+          <div class="mb-3">
+          <!--  <img src="{{ item.icon.url }}" alt="{{ item.title }}" style="height: 60px;" /> -->
+          </div>
+          <h4 class="fw-bold">{{ item.title }}</h4>
+          <p class="text-muted">{{ item.description|linebreaksbr }}</p>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+</body>
+</html>
