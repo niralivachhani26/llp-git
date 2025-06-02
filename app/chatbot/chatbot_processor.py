@@ -1,6 +1,6 @@
-# AI project/chatbot_processor.py
-# chatbot_processor.py
-from test_intent_main import process_message
+# app/chatbot/chatbot_processor.py
+
+from .test_intent_main import process_message  # Note the dot (.) before test_intent_main
 
 def get_chatbot_response(message):
     try:
