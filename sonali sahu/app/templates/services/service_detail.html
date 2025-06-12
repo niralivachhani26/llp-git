@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ service.title }} - Signage Solutions</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', sans-serif; background-color: #f9f9f9; color: #333; line-height: 1.6; }
+    .container { width: 90%; max-width: 800px; margin: auto; padding: 40px 0; }
+    h1 { font-size: 2.5rem; margin-bottom: 10px; }
+    .highlight-text { color: #f58220; font-weight: bold; margin-bottom: 10px; display: inline-block; }
+    .service-detail-img {
+      width: 100%; height: 400px; object-fit: cover; margin-top: 10px; border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <section class="service-detail-section">
+    <div class="container">
+      <p class="highlight-text">Service Details</p>
+      <h1>{{ service.title }}</h1>
+      <img src="{{ service.image.url }}" alt="{{ service.title }}" class="service-detail-img">
+      <p>{{ service.description }}</p>
+    </div>
+  </section>
+
+</body>
+</html>
