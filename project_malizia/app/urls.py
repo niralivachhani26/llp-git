@@ -1,7 +1,10 @@
+# project_malizia/app/urls.py
+
 from django.urls import path
 from . import views
 
 urlpatterns = [
+    # Your existing paths
     path('', views.home_view, name='home'),
     path('section8/', views.section8_view, name='section8'),
     path('section10/', views.section10_view, name='section10'),
@@ -21,4 +24,7 @@ urlpatterns = [
     path('vinyl-stickers/', views.vinyl_stickers, name='vinyl_stickers'),
     path('large-format-printing/', views.large_format_printing, name='large_format_printing'),
     path('custom-acrylic-branding/', views.custom_acrylic_branding, name='custom_acrylic_branding'),
+    
+    # Add the new chatbot endpoint
+    path('api/chatbot/', views.chatbot_endpoint, name='chatbot_endpoint'),  # new
 ]

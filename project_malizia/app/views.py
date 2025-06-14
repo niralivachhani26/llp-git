@@ -1,5 +1,10 @@
+# project_malizia/app/views.py
+
 from django.shortcuts import render
 from .models import Section8
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from .chatbot.chatbot_processor import get_chatbot_response
 
 def chunked(iterable, chunk_size):
     return [iterable[i:i + chunk_size] for i in range(0, len(iterable), chunk_size)]
@@ -62,14 +67,26 @@ def large_format_printing(request):
 def custom_acrylic_branding(request):
     return render(request, 'custom_acrylic_branding.html')
 
+# Chatbot endpoint
+@api_view(['POST'])
+def chatbot_endpoint(request):
+    try:
+        user_message = request.data.get('message')
+        
+        if not user_message:
+            return Response({
+                'status': 'error',
+                'message': 'No message provided'
+            }, status=400)
 
+        chatbot_response = get_chatbot_response(user_message)
+        return Response({
+            'status': 'success',
+            'response': chatbot_response
+        })
 
-
-
-
-
-
-
-
-
-
+    except Exception as e:
+        return Response({
+            'status': 'error',
+            'message': str(e)
+        }, status=500)
